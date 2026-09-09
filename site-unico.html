@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joás Ryan - Meu Site</title>
+
+    <style>
+        .pagina {
+            display: none;
+        }
+
+        .pagina.ativa {
+            display: block;
+        }
+
+        nav a {
+            cursor: pointer;
+        }
+
+        nav a.ativa {
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Joás Ryan</h1>
+
+        <nav>
+            <a class="link-nav ativa" data-pagina="pag-inicio">Início</a> |
+            <a class="link-nav" data-pagina="pag-biografia">Minha Biografia</a> |
+            <a class="link-nav" data-pagina="pag-contatos">Meus Contatos</a> |
+            <a class="link-nav" data-pagina="pag-time">Meu Time do Coração</a> |
+            <a class="link-nav" data-pagina="pag-video">Meu Vídeo</a>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <!-- PÁGINA 1: INÍCIO -->
+        <section id="pag-inicio" class="pagina ativa">
+
+            <h2>Sobre mim</h2>
+
+            <p>
+                Olá! Meu nome é <b>Joás Ryan</b>. Sou estudante e tenho interesse
+                em tecnologia e desenvolvimento de sistemas.
+                <br>
+                Gosto de aprender coisas novas e estou sempre buscando melhorar
+                meus conhecimentos.
+            </p>
+
+            <p>
+                Atualmente estou estudando
+                <i>HTML, CSS e programação</i>.
+                <br>
+                Meu objetivo é continuar aprendendo e desenvolver projetos
+                cada vez melhores.
+            </p>
+
+        </section>
+
+        <!-- PÁGINA 2: BIOGRAFIA -->
+        <section id="pag-biografia" class="pagina">
+
+            <h2>Minha Biografia</h2>
+
+            <p>
+                Meu nome é <b>Joás Ryan</b>. Nasci e cresci buscando entender
+                como as coisas funcionam por trás das telas, e foi assim que
+                comecei a me interessar por tecnologia.
+            </p>
+
+            <p>
+                Hoje sou estudante e estou dando meus primeiros passos no mundo
+                do desenvolvimento, aprendendo <i>HTML, CSS e programação</i>.
+                Gosto de encarar cada novo projeto como um desafio para evoluir
+                um pouco mais.
+            </p>
+
+            <p>
+                Fora da programação, gosto de acompanhar futebol — sou
+                <b>Flamenguista</b> de coração — e de assistir vídeos e
+                conteúdos que me ajudam a aprender coisas novas.
+            </p>
+
+            <p>
+                Meu objetivo é continuar estudando, construir bons projetos e,
+                no futuro, trabalhar com desenvolvimento de sistemas.
+            </p>
+
+            <p>
+                <i>[Edite este texto à vontade com mais detalhes sobre você!]</i>
+            </p>
+
+        </section>
+
+        <!-- PÁGINA 3: CONTATOS -->
+        <section id="pag-contatos" class="pagina">
+
+            <h2>Meus contatos</h2>
+
+            <ul>
+                <li><b>Nome:</b> Joás Ryan</li>
+
+                <li>
+                    <b>E-mail:</b>
+                    <a href="mailto:ryanjoasmarques@gmail.com">
+                        ryanjoasmarques@gmail.com
+                    </a>
+                </li>
+
+                <li><b>Telefone:</b> (00) 00000-0000</li>
+
+                <li>
+                    <b>Redes sociais:</b>
+                    <a href="https://www.instagram.com/" target="_blank">
+                        Instagram
+                    </a>
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- PÁGINA 4: TIME DO CORAÇÃO -->
+        <section id="pag-time" class="pagina">
+
+            <h2>Meu time do coração</h2>
+
+            <p>
+                Meu time do coração é o <b>Flamengo</b>!
+            </p>
+
+            <!-- Imagem do Flamengo -->
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Flamengo_braz_logo.svg"
+                alt="Escudo do Flamengo"
+                width="250">
+
+            <br>
+
+            <p>
+                <i>Flamengo, sempre!</i>
+            </p>
+
+        </section>
+
+        <!-- PÁGINA 5: VÍDEO -->
+        <section id="pag-video" class="pagina">
+
+            <h2>Meu vídeo</h2>
+
+            <p>
+                Um vídeo relacionado ao meu time:
+            </p>
+
+            <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/0P2aQO6J4QY"
+                title="Vídeo do Flamengo"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 - Joás Ryan</p>
+    </footer>
+
+    <script>
+        // Pega todos os links do menu e todas as seções de página
+        const links = document.querySelectorAll(".link-nav");
+        const paginas = document.querySelectorAll(".pagina");
+
+        links.forEach(function (link) {
+            link.addEventListener("click", function () {
+                const alvo = link.getAttribute("data-pagina");
+
+                // Esconde todas as páginas e tira o "ativa" de todos os links
+                paginas.forEach(function (pagina) {
+                    pagina.classList.remove("ativa");
+                });
+                links.forEach(function (l) {
+                    l.classList.remove("ativa");
+                });
+
+                // Mostra só a página clicada e marca o link como ativo
+                document.getElementById(alvo).classList.add("ativa");
+                link.classList.add("ativa");
+
+                // Volta pro topo da página ao trocar de seção
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
